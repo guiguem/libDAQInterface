@@ -1,4 +1,5 @@
 #include <DAQInterface.h>
+#include <thread>
 
 DAQInterface::DAQInterface(){
 
@@ -31,7 +32,7 @@ bool DAQInterface::Init(std::string name, std::string pg_client_configfile, std:
   }
    
   // after Initilising the pgclient needs ~15 seconds for the middleman to connect
-  std::this_thread::sleep_for(std::chrono::seconds(15));
+  std::this_thread::sleep_for(std::chrono::seconds(3));
   // hopefully the middleman has found us by now
   
   return true;
